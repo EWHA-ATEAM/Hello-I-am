@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitResolution : MonoBehaviour
+public class SetResolution : MonoBehaviour
 {
     /* 해상도 설정하는 함수 */
     void Start()

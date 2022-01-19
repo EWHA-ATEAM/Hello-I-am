@@ -37,6 +37,8 @@ public class AppManager : MonoBehaviour
     public void resetForTest()
     {
         PlayerPrefs.DeleteAll();
+        visited = 0;
         Debug.Log("pref 초기화");
+        Debug.Log("visited:" + visited);
     }
 }

@@ -3,7 +3,7 @@ import mediapipe as mp
 import numpy as np
 from tensorflow.keras.models import load_model
 
-actions = ['pet', 'heart', 'feed']
+actions = ['pet', 'heart', 'hi']
 seq_length = 30
 
 model = load_model('models/model2_1.0.h5')

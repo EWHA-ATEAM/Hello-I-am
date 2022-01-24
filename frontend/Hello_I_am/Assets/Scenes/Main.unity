@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 1227922162}
   - component: {fileID: 1227922164}
   - component: {fileID: 1227922163}
+  - component: {fileID: 1227922165}
   m_Layer: 5
   m_Name: Speech Guide
   m_TagString: Untagged
@@ -1210,6 +1211,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227922161}
   m_CullTransparentMesh: 1
+--- !u!114 &1227922165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227922161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9155e8a54a3c5984599013084bdf87b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recognizedText: {fileID: 1104404076}
 --- !u!1 &1228459151
 GameObject:
   m_ObjectHideFlags: 0

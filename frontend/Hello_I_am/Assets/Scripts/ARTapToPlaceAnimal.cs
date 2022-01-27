@@ -10,6 +10,7 @@ using UnityEngine.XR.ARSubsystems;
 public class ARTapToPlaceAnimal : MonoBehaviour
 {
     public GameObject gameObjectToInstantiate;
+    public ARPlaneManager arPlaneManager;
 
     private GameObject AnimalAR;
     private ARRaycastManager _arRaycastManager;
@@ -48,6 +49,7 @@ public class ARTapToPlaceAnimal : MonoBehaviour
             if(AnimalAR == null)
             {
                 AnimalAR = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
+                arPlaneManager.planePrefab = null; // 새로운 면 안 생김 기존에 생겨난 건 어떡할건지...
             }
             /* 이미 화면에 동물 AR이 있는 경우엔 터치하더라도 아무런 일이 일어나지 않음
             else

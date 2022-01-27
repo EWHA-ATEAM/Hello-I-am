@@ -59,6 +59,8 @@ namespace IBM.Watsson.Examples
 
         private SpeechToTextService _service;
 
+        public GameObject speechGuide;
+
         void Start()
         {
             LogSystem.InstallDefaultReactors();
@@ -220,11 +222,20 @@ namespace IBM.Watsson.Examples
                 {
                     foreach (var alt in res.alternatives)
                     {
+                        if (res.final)
+                        {
+                            ResultsField.text = alt.transcript;
+                            Active = false;
+                            // 3초후 가이드 창을 닫게하기 위한 코루틴
+                            StartCoroutine(TurnOffGuide());
+                        }
+                        /*
                         string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                         Log.Debug("ExampleStreaming.OnRecognize()", text);
                         // 정제해서 나온 최종 인식 결과만을 화면에 나타냄
                         if(res.final)
                             ResultsField.text = text;
+                        */
                     }
 
                     if (res.keywords_result != null && res.keywords_result.keyword != null)
@@ -246,6 +257,12 @@ namespace IBM.Watsson.Examples
                     }
                 }
             }
+        }
+
+        IEnumerator TurnOffGuide()
+        {
+            yield return new WaitForSeconds(3.0f);
+            speechGuide.SetActive(false);
         }
 
         private void OnRecognizeSpeaker(SpeakerRecognitionEvent result)

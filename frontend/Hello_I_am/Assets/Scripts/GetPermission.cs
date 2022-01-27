@@ -9,15 +9,21 @@ public class GetPermission : MonoBehaviour
 {
     void Start()
     {
-        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+        StartCoroutine("permissionCheck");
+    }
 
+    IEnumerator permissionCheck()
+    {
+        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
         {
             Permission.RequestUserPermission(Permission.Camera);
-        }
+            yield return new WaitForSeconds(0.2f);
+            yield return new WaitUntil(() => Application.isFocused == true);
 
-        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
-        {
-            Permission.RequestUserPermission(Permission.Microphone);
+            if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+            {
+                Permission.RequestUserPermission(Permission.Microphone);
+            }
         }
     }
 }

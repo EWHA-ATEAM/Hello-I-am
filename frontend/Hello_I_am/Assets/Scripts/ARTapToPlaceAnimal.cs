@@ -49,14 +49,16 @@ public class ARTapToPlaceAnimal : MonoBehaviour
             if(AnimalAR == null)
             {
                 AnimalAR = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
-                arPlaneManager.planePrefab = null; // »õ·Î¿î ¸é ¾È »ı±è ±âÁ¸¿¡ »ı°Ü³­ °Ç ¾î¶±ÇÒ°ÇÁö...
+                arPlaneManager.planePrefab = null; // ìƒˆë¡œìš´ ë©´ ì•ˆ ìƒê¹€ ê¸°ì¡´ì— ìƒê²¨ë‚œ ê±´ ì–´ë–¡í• ê±´ì§€...
             }
-            /* ÀÌ¹Ì È­¸é¿¡ µ¿¹° ARÀÌ ÀÖ´Â °æ¿ì¿£ ÅÍÄ¡ÇÏ´õ¶óµµ ¾Æ¹«·± ÀÏÀÌ ÀÏ¾î³ªÁö ¾ÊÀ½
+            /* ì´ë¯¸ í™”ë©´ì— ë™ë¬¼ ARì´ ìˆëŠ” ê²½ìš°ì—” instance ë§Œë“œëŠ” ê²ƒì„ ë©ˆì¶¤ */
             else
             {
-                AnimalAR.transform.position = hitPose.position;
+                foreach (var plane in arPlaneManager.trackables)
+                {
+                    plane.gameObject.SetActive(false);
+                }
             }
-            */
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -20,13 +21,13 @@ public class ServerCommunicate : MonoBehaviour
     public void Start()
     {
         // 수정해주기
-        StartCoroutine(Post("www.asdf.com/api/sentence_label", "배고파"));
+        // 로컬내부망 앞 0.0.0.*가 같아야 동일한 네트워크에 있는 것
+        StartCoroutine(Post("서버주소/api/sentence-label/", "안녕"));
     }
 
     public IEnumerator Post(string url, string data)
     {
-        // url은 서버 주소..인듯 함 공식 홈페이지 예시에는 "www.my-server.com/myform",
-        
+        /*
         byte[] dataToSend = new UTF8Encoding().GetBytes(data);
 
         UnityWebRequest request = UnityWebRequest.Post(url, data);
@@ -43,29 +44,29 @@ public class ServerCommunicate : MonoBehaviour
             string message = request.downloadHandler.text;
             Debug.Log("Server responded: "+ message);
         }
+
         else
         {
             Debug.Log("no response");
         }
+        */
         
 
-        /* 헤더 직접 지정하는 방법 -> 근데 이해를 잘 못하겠음.. 그냥 POST로 보내도 헤더는 POST가 되는 것이 아닌가?
+        /* 헤더 직접 지정하는 방법 -> 근데 이해를 잘 못하겠음.. 그냥 POST로 보내도 헤더는 POST가 되는 것이 아닌가?*/
         WWWForm form = new WWWForm();
-        form.AddField("Data", data);
+        form.AddField("sentence", data);
 
         UnityWebRequest request = UnityWebRequest.Post(url, form);
-        request.SetRequestHeader("Header", "POST");
         yield return request.SendWebRequest();
 
-        if (request.isNetworkError || request.isHttpError)
+        if (request == null)
         {
             Debug.LogError(request.error);
         }
         else
         {
-            Debug.Log("Complete!");
+            string message = request.downloadHandler.text;
+            Debug.Log("Server responded: " + message);
         }
-        */
     }
-
 }

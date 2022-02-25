@@ -11,6 +11,8 @@ public class ARTapToPlaceAnimal : MonoBehaviour
 {
     public GameObject gameObjectToInstantiate;
     public ARPlaneManager arPlaneManager;
+    public GameObject startUI;
+    public GameObject basicUI;
 
     private GameObject AnimalAR;
     private ARRaycastManager _arRaycastManager;
@@ -49,7 +51,10 @@ public class ARTapToPlaceAnimal : MonoBehaviour
             if(AnimalAR == null)
             {
                 AnimalAR = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
-                arPlaneManager.planePrefab = null; // 새로운 면 안 생김 기존에 생겨난 건 어떡할건지...
+                startUI.SetActive(false);
+                basicUI.SetActive(true);
+
+                arPlaneManager.planePrefab = null; // 새로운 면 안 생김
             }
             /* 이미 화면에 동물 AR이 있는 경우엔 instance 만드는 것을 멈춤 */
             else

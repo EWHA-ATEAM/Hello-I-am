@@ -7,53 +7,20 @@ using UnityEngine.Networking;
 
 public class ServerCommunicate : MonoBehaviour
 {
-    // 첫 시작에 인터넷 연결 되었는지 확인
-    private void Awake()
-    {
-        if(Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            Debug.LogError("인터넷 연결 안 됨");
-            // 팝업 띄우고 강제종료 하는게 좋을 듯
-            Application.Quit();
-        }
-    }
+    [SerializeField]
+    private GameObject chatScroll;
+    [SerializeField]
+    private GameObject loading;
 
-    public void Start()
-    {
-        // 수정해주기
-        // 로컬내부망 앞 0.0.0.*가 같아야 동일한 네트워크에 있는 것
-        StartCoroutine(Post("서버주소/api/sentence-label/", "안녕"));
-    }
-
+    private int comm_num =0;
+    
     public IEnumerator Post(string url, string data)
     {
-        /*
-        byte[] dataToSend = new UTF8Encoding().GetBytes(data);
+        // 값을 받아오는 시간 동안 loading 화면 실행
+        loading.SetActive(true);
 
-        UnityWebRequest request = UnityWebRequest.Post(url, data);
-        request.uploadHandler = new UploadHandlerRaw(dataToSend);
-        //json 헤더 추가
-        request.SetRequestHeader("Content-Type", "application/json");
-
-
-
-        yield return request.SendWebRequest();
-
-        if( request != null)
-        {
-            string message = request.downloadHandler.text;
-            Debug.Log("Server responded: "+ message);
-        }
-
-        else
-        {
-            Debug.Log("no response");
-        }
-        */
-        
-
-        /* 헤더 직접 지정하는 방법 -> 근데 이해를 잘 못하겠음.. 그냥 POST로 보내도 헤더는 POST가 되는 것이 아닌가?*/
         WWWForm form = new WWWForm();
+        // 필드 지정
         form.AddField("sentence", data);
 
         UnityWebRequest request = UnityWebRequest.Post(url, form);
@@ -65,8 +32,38 @@ public class ServerCommunicate : MonoBehaviour
         }
         else
         {
+            loading.SetActive(false);
             string message = request.downloadHandler.text;
+            comm_num = addCommunicationLog(comm_num, message);
+            chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
             Debug.Log("Server responded: " + message);
         }
+    }
+
+    private int addCommunicationLog(int count, string msg)
+    {
+        int index = 1;
+        if (count > 3)
+            index = 0;
+
+        chatScroll.GetComponentInChildren<Text>().text = chatScroll.GetComponentInChildren<Text>().text.Substring(index) + "\n" + msg;
+        count++;
+        StartCoroutine(goBottom());
+        return count;
+    }
+
+    private IEnumerator goBottom()
+    {
+        yield return new WaitForSeconds(0.1f);
+        chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
+    }
+
+
+
+    // For test
+    public void onclicktest()
+    {
+        comm_num = addCommunicationLog(comm_num, comm_num + "번째 시도");
+        chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
 }

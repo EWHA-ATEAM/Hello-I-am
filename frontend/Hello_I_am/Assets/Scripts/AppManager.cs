@@ -8,6 +8,12 @@ public class AppManager : MonoBehaviour
     public int visited; // 첫 방문시 0의 값을 가짐 for guide..
     [HideInInspector]
     public int animal_index = -1; // 선택된 animal의 index
+
+    [SerializeField]
+    private GameObject _alertPrefab;
+
+    private bool alertOpen = false;
+    private GameObject unconnectionAlert;
     
     // 싱글턴 + 씬 간 이동에도 인스턴스가 파괴되지 않도록 설정
     public static AppManager instance;
@@ -34,11 +40,28 @@ public class AppManager : MonoBehaviour
         Debug.Log("visited:" + visited);
     }
 
+    private void Update()
+    {
+        // 인터넷 연결 되었는지 확인
+        if (Application.internetReachability == NetworkReachability.NotReachable && !alertOpen)
+        {
+            alertOpen = true;
+            Debug.LogError("인터넷 연결 안 됨");
+            unconnectionAlert = Instantiate(_alertPrefab, GameObject.Find("Canvas").transform);
+        }
+    }
+
     public void resetForTest()
     {
         PlayerPrefs.DeleteAll();
         visited = 0;
         Debug.Log("pref 초기화");
         Debug.Log("visited:" + visited);
+    }
+
+    public void appForceQuit()
+    {
+        Destroy(unconnectionAlert);
+        Application.Quit();
     }
 }

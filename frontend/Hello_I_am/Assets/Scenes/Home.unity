@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visited: 0
   animal_index: -1
+  _alertPrefab: {fileID: 2865226354983209376, guid: 3448f1916eccba5439f5ffd9c8f8484a, type: 3}
 --- !u!4 &549873129
 Transform:
   m_ObjectHideFlags: 0
@@ -498,7 +499,7 @@ GameObject:
   - component: {fileID: 920226290}
   - component: {fileID: 920226289}
   m_Layer: 5
-  m_Name: Test Button
+  m_Name: Reset Button for Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,7 +802,7 @@ GameObject:
   - component: {fileID: 1305597527}
   - component: {fileID: 1305597526}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Enter Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +936,6 @@ GameObject:
   - component: {fileID: 1861091170}
   - component: {fileID: 1861091169}
   - component: {fileID: 1861091174}
-  - component: {fileID: 1861091175}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1049,18 +1049,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd62d5362670e0148b126bb9fdb76538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1861091175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861091168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6035f61ae8e1ab142ae299566756f6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1870306919

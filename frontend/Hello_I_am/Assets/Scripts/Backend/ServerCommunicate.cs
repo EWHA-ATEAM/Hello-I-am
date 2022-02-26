@@ -12,7 +12,7 @@ public class ServerCommunicate : MonoBehaviour
 
     private int comm_num =0;
 
-    private string url = "/api/sentence-label/";
+    private string url = "ec2서버주소/api/sentence-label/";
 
     public void sendToServer(string data)
     {
@@ -54,7 +54,7 @@ public class ServerCommunicate : MonoBehaviour
 
     private IEnumerator goBottom()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f * Time.deltaTime);
         chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
 

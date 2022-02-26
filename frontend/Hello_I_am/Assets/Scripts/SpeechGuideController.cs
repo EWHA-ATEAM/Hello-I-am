@@ -16,7 +16,7 @@ public class SpeechGuideController : MonoBehaviour
 
     private void OnEnable()
     {
-        serverCommunicate = GameObject.Find("AppManager").GetComponent<ServerCommunicate>();
+        serverCommunicate = GameObject.Find("Canvas").GetComponent<ServerCommunicate>();
         if (!isRetry)
         {
             isRetry = true;

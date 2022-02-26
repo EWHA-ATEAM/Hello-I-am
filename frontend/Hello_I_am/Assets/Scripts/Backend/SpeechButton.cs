@@ -12,7 +12,7 @@ public class SpeechButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     private void Start()
     {
-        speechToTextClova = GameObject.Find("AppManager").GetComponent<SpeechToTextClova>();
+        speechToTextClova = GameObject.Find("Canvas").GetComponent<SpeechToTextClova>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -33,7 +33,8 @@ public class SpeechButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     private IEnumerator Recording()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f * Time.deltaTime);
+
         speechToTextClova.startRecording();
     }
 }

@@ -84,7 +84,7 @@ public class SpeechToTextClova : MonoBehaviour
             Debug.Log("Voice Server responded: " + voiceRecognize.text);
 
             // 입력된 음성에 대한 답변 판단을 위해 서버로 전송
-            AppManager.instance.GetComponent<ServerCommunicate>().sendToServer(voiceRecognize.text);
+            GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(voiceRecognize.text);
             loadingText.text = "\"" + voiceRecognize.text + "\"\n에 대한 답변 고민 중...";
         }
     }
@@ -158,7 +158,6 @@ public class SpeechToTextClova : MonoBehaviour
 
         return count;
     }
-
     private int WriteFileFormat(ref MemoryStream stream, int channels, int sampleRate, UInt16 bitDepth)
     {
         int count = 0;
@@ -191,7 +190,6 @@ public class SpeechToTextClova : MonoBehaviour
 
         return count;
     }
-
     private int WriteFileData(ref MemoryStream stream, AudioClip audioClip, UInt16 bitDepth)
     {
         int count = 0;
@@ -220,7 +218,6 @@ public class SpeechToTextClova : MonoBehaviour
 
         return count;
     }
-
     private byte[] ConvertAudioClipDataToInt16ByteArray(float[] data)
     {
         MemoryStream dataStream = new MemoryStream();
@@ -244,7 +241,6 @@ public class SpeechToTextClova : MonoBehaviour
 
         return bytes;
     }
-
     private int WriteBytesToMemoryStream(ref MemoryStream stream, byte[] bytes, string tag = "")
     {
         int count = bytes.Length;
@@ -252,7 +248,6 @@ public class SpeechToTextClova : MonoBehaviour
         //Debug.LogFormat ("WAV:{0} wrote {1} bytes.", tag, count);
         return count;
     }
-
     private static int BytesPerSample(UInt16 bitDepth)
     {
         return bitDepth / 8;

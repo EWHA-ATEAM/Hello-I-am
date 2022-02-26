@@ -12,18 +12,15 @@ public class ServerCommunicate : MonoBehaviour
 
     private int comm_num =0;
 
-    private string url = "http://3.39.37.219:8000/api/sentence-label/";
+    private string url = "/api/sentence-label/";
 
     public void sendToServer(string data)
     {
         StartCoroutine(Post(url, data));
     }
     
-    public IEnumerator Post(string url, string data)
+    private IEnumerator Post(string url, string data)
     {
-        // 값을 받아오는 시간 동안 loading 화면 실행
-        loading.SetActive(true);
-
         WWWForm form = new WWWForm();
         // 필드 지정
         form.AddField("sentence", data);
@@ -40,8 +37,6 @@ public class ServerCommunicate : MonoBehaviour
             loading.SetActive(false);
             string message = request.downloadHandler.text;
             comm_num = addCommunicationLog(comm_num, message);
-            chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
-            Debug.Log("Server responded: " + message);
         }
     }
 
@@ -62,8 +57,6 @@ public class ServerCommunicate : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
-
-
 
     // For test
     public void onclicktest()

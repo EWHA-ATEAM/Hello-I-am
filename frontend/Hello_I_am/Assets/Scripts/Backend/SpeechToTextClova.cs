@@ -26,6 +26,11 @@ public class SpeechToTextClova : MonoBehaviour
         public string text;
     }
 
+    [SerializeField]
+    private GameObject loading;
+    [SerializeField]
+    private Text loadingText;
+
     private string url = "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor";
     private string _lang = "Kor";
 
@@ -33,7 +38,7 @@ public class SpeechToTextClova : MonoBehaviour
 
     private string _microphoneID = null;
     private AudioClip _recording = null;
-    private int _recordingLengthSec = 15;
+    private int _recordingLengthSec = 15; // Clova 과금 기준이 15초 당..이라서
     private int _recordingHZ = 22050;
 
     private void Start()
@@ -51,6 +56,10 @@ public class SpeechToTextClova : MonoBehaviour
 
     private IEnumerator PostVoice(string url, byte[] data)
     {
+        // 값을 받아오는 시간 동안 loading 화면 실행
+        loadingText.text = "질문 이해 중...";
+        loading.SetActive(true);
+
         WWWForm form = new WWWForm();
 
         UnityWebRequest request = UnityWebRequest.Post(url, form);
@@ -68,42 +77,40 @@ public class SpeechToTextClova : MonoBehaviour
         }
         else
         {
+            // json 형태로 받음
             string message = request.downloadHandler.text;
             VoiceRecognize voiceRecognize = JsonUtility.FromJson<VoiceRecognize>(message);
+
             Debug.Log("Voice Server responded: " + voiceRecognize.text);
+
+            // 입력된 음성에 대한 답변 판단을 위해 서버로 전송
+            AppManager.instance.GetComponent<ServerCommunicate>().sendToServer(voiceRecognize.text);
+            loadingText.text = "\"" + voiceRecognize.text + "\"\n에 대한 답변 고민 중...";
         }
     }
 
-    // 버튼 누르면 녹음 시작
     public void startRecording()
     {
         Debug.Log("start recording");
         _recording = Microphone.Start(_microphoneID, false, _recordingLengthSec, _recordingHZ);
     }
-    // 버튼에서 손 떼면 녹음 끝
+
     public void stopRecording()
     {
-        Microphone.End(_microphoneID);
-        if (!Microphone.IsRecording(_microphoneID))
+        if (Microphone.IsRecording(_microphoneID))
         {
+            Microphone.End(_microphoneID);
+
             Debug.Log("stop recording");
             if (_recording == null)
             {
                 Debug.LogError("nothing recorded");
                 return;
             }
-            // for test
-            //_audioSource.clip = _recording;
-            //_audioSource.Play();
-
-            //float[] samples = new float[_recording.samples * _recording.channels];
-            // _recording.GetData(samples, 0);
-
-            //byte[] byteDate = new byte[samples.Length * 4];
-            //System.Buffer.BlockCopy(samples, 0, byteDate, 0, byteDate.Length);
-
+            // audio clip to byte array
             byte[] byteData = getByteFromAudioClip(_recording);
 
+            // 녹음된 audioclip api 서버로 보냄
             StartCoroutine(PostVoice(url, byteData));
         }
         return;

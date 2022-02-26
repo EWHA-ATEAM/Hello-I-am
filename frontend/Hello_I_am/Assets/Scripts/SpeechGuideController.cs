@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class SpeechGuideController : MonoBehaviour
 {
     [SerializeField]
-    private Text recognizedText;
-    [SerializeField]
     private Text guideText;
 
     const int GUIDE_NUM = 3;
@@ -49,21 +47,5 @@ public class SpeechGuideController : MonoBehaviour
             }
             guideText.text = guide;
         }
-        recognizedText.text = "";
-    }
-
-    private void OnDisable()
-    {
-        //string data = recognizedText.text;
-        string data = "안녕";
-        // 테스트 때문에 아래 코드 각주 처리, 최종적으로는 각주처리 빼주어야함
-        //serverCommunicate.sendToServer(data);
-    }
-
-    public void on()
-    {
-        //string data = recognizedText.text;
-        string data = "안녕";
-        serverCommunicate.sendToServer(data);
     }
 }

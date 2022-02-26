@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Text;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -13,6 +11,13 @@ public class ServerCommunicate : MonoBehaviour
     private GameObject loading;
 
     private int comm_num =0;
+
+    private string url = "http://3.39.37.219:8000/api/sentence-label/";
+
+    public void sendToServer(string data)
+    {
+        StartCoroutine(Post(url, data));
+    }
     
     public IEnumerator Post(string url, string data)
     {

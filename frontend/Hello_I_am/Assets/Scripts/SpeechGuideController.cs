@@ -15,7 +15,6 @@ public class SpeechGuideController : MonoBehaviour
     private string[] guideList = { "어디에 사는지", "무엇을 먹는지", "기분이 어떤지", "힘든 점이 있는지", "우리가 도와줄 것이 있는지", "동물가족들은 어떤지", "나이가 어떻게 되는지", "겉모습이 어떤지" };
 
     private ServerCommunicate serverCommunicate;
-    private string url = "서버주소/api/sentence-label/";
 
     private void OnEnable()
     {
@@ -55,8 +54,16 @@ public class SpeechGuideController : MonoBehaviour
 
     private void OnDisable()
     {
-        string data = recognizedText.text;
+        //string data = recognizedText.text;
+        string data = "안녕";
         // 테스트 때문에 아래 코드 각주 처리, 최종적으로는 각주처리 빼주어야함
-        //StartCoroutine(serverCommunicate.Post(url, data));
+        //serverCommunicate.sendToServer(data);
+    }
+
+    public void on()
+    {
+        //string data = recognizedText.text;
+        string data = "안녕";
+        serverCommunicate.sendToServer(data);
     }
 }

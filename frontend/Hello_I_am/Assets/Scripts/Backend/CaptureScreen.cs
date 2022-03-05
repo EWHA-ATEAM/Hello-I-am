@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class CaptureScreen : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class CaptureScreen : MonoBehaviour
         RenderTexture rt = new RenderTexture(width, height, depth);
         // render texture를 저장할 Texture2D
         Texture2D screenShot = new Texture2D(width, height, TextureFormat.RGB24, false); // 일단 컬러로 해뒀는데 흑백이어도 상관 없다면 흑백으로 변경 필요
+
+        // 캡쳐후 기존 카메라 렌더 텍스쳐를 돌려받기 위해 임시로 저장
+        RenderTexture temp = unityCamera.targetTexture;
         unityCamera.targetTexture = rt;
 
         // 화면 렌더링
@@ -44,15 +48,14 @@ public class CaptureScreen : MonoBehaviour
         screenShot.ReadPixels(new Rect(0, 0, width, height),0,0);
         screenShot.Apply();
 
-        // 만약 http 통신으로 보낼경우
         byte[] imgBytes = screenShot.EncodeToJPG();
 
-        /*
-        
-        ServerCommunicate.cs 좀 수정하고 함수 호출해서 보내면 될 듯 합니다
+        Debug.Log("캡처 완료");
 
-        */
+        unityCamera.targetTexture = temp;
 
+        // 만약 http 통신으로 보낼경우
+        //GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(imgBytes);
 
         nowCapturing = false;
     }

@@ -12,20 +12,25 @@ public class ServerCommunicate : MonoBehaviour
 
     private int comm_num =0;
 
-    private string url = "ec2서버주소/api/sentence-label/";
+    private string url = "ec2서버주소/";
 
     public void sendToServer(string data)
     {
-        StartCoroutine(Post(url, data));
+        StartCoroutine(Post(data));
     }
-    
-    private IEnumerator Post(string url, string data)
+
+    public void sendToServer(byte[] data)
+    {
+        StartCoroutine(Post(data));
+    }
+
+    private IEnumerator Post(string data)
     {
         WWWForm form = new WWWForm();
         // 필드 지정
         form.AddField("sentence", data);
 
-        UnityWebRequest request = UnityWebRequest.Post(url, form);
+        UnityWebRequest request = UnityWebRequest.Post(url + "api/sentence-label/", form);
         yield return request.SendWebRequest();
 
         if (request == null)
@@ -39,6 +44,31 @@ public class ServerCommunicate : MonoBehaviour
             comm_num = addCommunicationLog(comm_num, message);
         }
     }
+
+    private IEnumerator Post(byte[] data)
+    {
+        WWWForm form = new WWWForm();
+        // 필드 지정
+        form.AddBinaryData("screenImage", data);
+
+        UnityWebRequest request = UnityWebRequest.Post(url + "api/모션인식어쩌구/", form);
+        yield return request.SendWebRequest();
+
+        if (request == null)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            loading.SetActive(false);
+            string message = request.downloadHandler.text;
+            Debug.LogError("사진 인식 결과값:" + message);
+            // 처리하는 함수 호출
+        }
+    }
+
+
+
 
     private int addCommunicationLog(int count, string msg)
     {

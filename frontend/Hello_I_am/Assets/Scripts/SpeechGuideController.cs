@@ -8,8 +8,10 @@ public class SpeechGuideController : MonoBehaviour
     [SerializeField]
     private Text guideText;
 
+    [HideInInspector]
+    public bool isRetry = false;
     const int GUIDE_NUM = 3;
-    private bool isRetry = false;
+    
     private string[] guideList = { "어디에 사는지", "무엇을 먹는지", "기분이 어떤지", "힘든 점이 있는지", "우리가 도와줄 것이 있는지", "동물가족들은 어떤지", "나이가 어떻게 되는지", "겉모습이 어떤지" };
 
     private ServerCommunicate serverCommunicate;
@@ -19,7 +21,6 @@ public class SpeechGuideController : MonoBehaviour
         serverCommunicate = GameObject.Find("Canvas").GetComponent<ServerCommunicate>();
         if (!isRetry)
         {
-            isRetry = true;
             guideText.text = "인사를 나눠보세요!";
         }
         else

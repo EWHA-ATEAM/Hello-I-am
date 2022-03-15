@@ -10,6 +10,13 @@ import tensorflow_hub as hub
 import tensorflow_text
 
 @api_view(['POST'])
+def get_image(request):
+    image =(request.data.get('screenImage'))
+    print(image)
+    print(type(image))
+    return HttpResponse(17)
+
+@api_view(['POST'])
 def label_user_chat(request):
     sentence = str(request.data.get('sentence'))
     print(sentence)

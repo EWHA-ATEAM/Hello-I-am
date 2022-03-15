@@ -1,62 +1,36 @@
 using System.Collections;
-using System.Text;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class ServerCommunicate : MonoBehaviour
 {
-    // 첫 시작에 인터넷 연결 되었는지 확인
-    private void Awake()
+    [SerializeField]
+    private GameObject chatScroll;
+    [SerializeField]
+    private GameObject loading;
+
+    private int comm_num =0;
+
+    private string url = "ec2서버주소/";
+
+    public void sendToServer(string data)
     {
-        if(Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            Debug.LogError("인터넷 연결 안 됨");
-            // 팝업 띄우고 강제종료 하는게 좋을 듯
-            Application.Quit();
-        }
+        StartCoroutine(Post(data));
     }
 
-    public void Start()
+    public void sendToServer(byte[] data)
     {
-        // 수정해주기
-        // 로컬내부망 앞 0.0.0.*가 같아야 동일한 네트워크에 있는 것
-        StartCoroutine(Post("서버주소/api/sentence-label/", "안녕"));
+        StartCoroutine(Post(data));
     }
 
-    public IEnumerator Post(string url, string data)
+    private IEnumerator Post(string data)
     {
-        /*
-        byte[] dataToSend = new UTF8Encoding().GetBytes(data);
-
-        UnityWebRequest request = UnityWebRequest.Post(url, data);
-        request.uploadHandler = new UploadHandlerRaw(dataToSend);
-        //json 헤더 추가
-        request.SetRequestHeader("Content-Type", "application/json");
-
-
-
-        yield return request.SendWebRequest();
-
-        if( request != null)
-        {
-            string message = request.downloadHandler.text;
-            Debug.Log("Server responded: "+ message);
-        }
-
-        else
-        {
-            Debug.Log("no response");
-        }
-        */
-        
-
-        /* 헤더 직접 지정하는 방법 -> 근데 이해를 잘 못하겠음.. 그냥 POST로 보내도 헤더는 POST가 되는 것이 아닌가?*/
         WWWForm form = new WWWForm();
+        // 필드 지정
         form.AddField("sentence", data);
 
-        UnityWebRequest request = UnityWebRequest.Post(url, form);
+        UnityWebRequest request = UnityWebRequest.Post(url + "api/sentence-label/", form);
         yield return request.SendWebRequest();
 
         if (request == null)
@@ -65,8 +39,59 @@ public class ServerCommunicate : MonoBehaviour
         }
         else
         {
+            loading.SetActive(false);
             string message = request.downloadHandler.text;
-            Debug.Log("Server responded: " + message);
+            comm_num = addCommunicationLog(comm_num, message);
         }
+    }
+
+    private IEnumerator Post(byte[] data)
+    {
+        WWWForm form = new WWWForm();
+        // 필드 지정
+        form.AddBinaryData("screenImage", data);
+
+        UnityWebRequest request = UnityWebRequest.Post(url + "api/모션인식어쩌구/", form);
+        yield return request.SendWebRequest();
+
+        if (request == null)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            loading.SetActive(false);
+            string message = request.downloadHandler.text;
+            Debug.LogError("사진 인식 결과값:" + message);
+            // 처리하는 함수 호출
+        }
+    }
+
+
+
+
+    private int addCommunicationLog(int count, string msg)
+    {
+        int index = 1;
+        if (count > 4)
+            index = 0;
+
+        chatScroll.GetComponentInChildren<Text>().text = chatScroll.GetComponentInChildren<Text>().text.Substring(index) + "\n" + msg;
+        count++;
+        StartCoroutine(goBottom());
+        return count;
+    }
+
+    private IEnumerator goBottom()
+    {
+        yield return new WaitForSeconds(0.1f * Time.deltaTime);
+        chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
+    }
+
+    // For test
+    public void onclicktest()
+    {
+        comm_num = addCommunicationLog(comm_num, comm_num + "번째 시도");
+        chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
 }

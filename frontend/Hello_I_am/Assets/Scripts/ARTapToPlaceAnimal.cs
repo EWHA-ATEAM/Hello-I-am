@@ -9,7 +9,7 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARTapToPlaceAnimal : MonoBehaviour
 {
-    public GameObject gameObjectToInstantiate;
+    public GameObject[] gameObjectToInstantiate;
     public ARPlaneManager arPlaneManager;
     public GameObject startUI;
     public GameObject basicUI;
@@ -50,7 +50,7 @@ public class ARTapToPlaceAnimal : MonoBehaviour
 
             if(AnimalAR == null)
             {
-                AnimalAR = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
+                AnimalAR = Instantiate(gameObjectToInstantiate[AppManager.instance.animal_index], hitPose.position, hitPose.rotation);
                 startUI.SetActive(false);
                 basicUI.SetActive(true);
 

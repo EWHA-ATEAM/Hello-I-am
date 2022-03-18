@@ -58,10 +58,4 @@ public class AppManager : MonoBehaviour
         Debug.Log("pref 초기화");
         Debug.Log("visited:" + visited);
     }
-
-    public void appForceQuit()
-    {
-        Destroy(unconnectionAlert);
-        Application.Quit();
-    }
 }

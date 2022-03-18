@@ -32,7 +32,6 @@ public class SpeechToTextClova : MonoBehaviour
     private Text loadingText;
 
     private string url = "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor";
-    private string _lang = "Kor";
 
     int BlockSize_16Bit = 2;
 

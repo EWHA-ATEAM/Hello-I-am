@@ -9,10 +9,19 @@ public class ServerCommunicate : MonoBehaviour
     private GameObject chatScroll;
     [SerializeField]
     private GameObject loading;
+    [Space(10)]
+    [SerializeField]
+    private string url;
+
+    [HideInInspector]
+    public bool receiveMotion = false;
+    [HideInInspector]
+    public int motionIndex = 0;
+
 
     private int comm_num =0;
 
-    private string url = "ec2서버주소/";
+    
 
     public void sendToServer(string data)
     {
@@ -28,9 +37,11 @@ public class ServerCommunicate : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         // 필드 지정
+        form.AddField("animal", AppManager.instance.animal_index);
         form.AddField("sentence", data);
 
         UnityWebRequest request = UnityWebRequest.Post(url + "api/sentence-label/", form);
+
         yield return request.SendWebRequest();
 
         if (request == null)
@@ -50,8 +61,9 @@ public class ServerCommunicate : MonoBehaviour
         WWWForm form = new WWWForm();
         // 필드 지정
         form.AddBinaryData("screenImage", data);
+        Debug.Log("사진 보냄");
 
-        UnityWebRequest request = UnityWebRequest.Post(url + "api/모션인식어쩌구/", form);
+        UnityWebRequest request = UnityWebRequest.Post(url + "api/image-test/", form);
         yield return request.SendWebRequest();
 
         if (request == null)
@@ -62,8 +74,11 @@ public class ServerCommunicate : MonoBehaviour
         {
             loading.SetActive(false);
             string message = request.downloadHandler.text;
-            Debug.LogError("사진 인식 결과값:" + message);
-            // 처리하는 함수 호출
+            Debug.Log("사진 인식 결과값:" + message);
+            /* 처리하는 함수 호출
+            motionIndex = int.Parse(message);
+            receiveMotion = true;
+            */
         }
     }
 

@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 
 public class CaptureScreen : MonoBehaviour
 {
     [SerializeField]
     private Camera unityCamera;
+    [SerializeField]
+    private GameObject checkScreenShot;
+    [SerializeField]
+    private GameObject basicUI;
 
     private int width;
     private int height;
@@ -54,9 +59,24 @@ public class CaptureScreen : MonoBehaviour
 
         unityCamera.targetTexture = temp;
 
+        Texture2D tex = new Texture2D(1, 1, TextureFormat.RGB24, false);
+        tex.LoadImage(imgBytes);
+        Sprite custom_sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+        checkScreenShot.SetActive(true);
+        checkScreenShot.GetComponent<Image>().sprite = custom_sprite;
+
+        // 파일 저장 코드
+        // File.WriteAllBytes("C:/Users/zmin9/Desktop/test.jpg", imgBytes);
+
         // 만약 http 통신으로 보낼경우
         //GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(imgBytes);
 
+        Destroy(screenShot);
+        //아래 코드를 활성화 시키면 이상한 sprite가 뜸
+        //Destroy(tex);
+
         nowCapturing = false;
+        basicUI.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class OpacityController : MonoBehaviour
 {
+    public float retentionTime;
+    public float fadeOutRate;
+
     private bool startFadeOut = false;
     private Color color;
     private void OnEnable()
@@ -12,7 +15,7 @@ public class OpacityController : MonoBehaviour
         color = gameObject.GetComponent<Image>().color;
         color.a = 1.0f;
         gameObject.GetComponent<Image>().color = color;
-        StartCoroutine(WaitFadeOut(1.0f));
+        StartCoroutine(WaitFadeOut(retentionTime));
     }
     void Update()
     {
@@ -26,7 +29,7 @@ public class OpacityController : MonoBehaviour
             }
             else
             {
-                color.a -= 0.05f;
+                color.a -= fadeOutRate;
                 gameObject.GetComponent<Image>().color = color;
             }
         }

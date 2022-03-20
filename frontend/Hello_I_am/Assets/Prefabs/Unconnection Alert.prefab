@@ -157,9 +157,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "<\uC548\uB155? \uB098\uB294,>\uC571 \uC0AC\uC6A9\uC744 \uC704\uD574\n
-    \uC778\uD130\uB137 \uC5F0\uACB0\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.\n\uC778\uD130\uB137
-    \uC5F0\uACB0\uC0C1\uD0DC\uB97C \uD655\uC778\uD574\uC8FC\uC138\uC694 :)"
+  m_Text: "<\uC548\uB155? \uB098\uB294,>\uC571 \uC0AC\uC6A9\uC744 \uC704\uD574\n\uC778\uD130\uB137
+    \uC5F0\uACB0\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.\n\uC778\uD130\uB137 \uC5F0\uACB0\uC0C1\uD0DC\uB97C
+    \uD655\uC778\uD574\uC8FC\uC138\uC694 :)"
 --- !u!1 &2865226353985638493
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2865226354983209383}
+  - component: {fileID: 2259371813374135988}
   m_Layer: 5
   m_Name: Unconnection Alert
   m_TagString: Untagged
@@ -349,6 +350,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2259371813374135988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865226354983209376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af632c5b45ac8a4580a987f2ec380a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2865226355209040919
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,9 +483,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AppManager, Assembly-CSharp
-        m_MethodName: appForceQuit
+      - m_Target: {fileID: 2259371813374135988}
+        m_TargetAssemblyTypeName: UnconnectedAlert, Assembly-CSharp
+        m_MethodName: onClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

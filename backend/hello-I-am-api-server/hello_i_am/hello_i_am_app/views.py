@@ -100,7 +100,7 @@ def label_user_chat(request):
     ])
     sentences2 = tf.constant([  # 질문의 카테고리에 따른 대표 질문들
         "안녕? 너는 이름이 뭐야", "너는 어디에 살아?", "밥 뭐먹었어?", "기분이 어때?", "힘든 이유가 뭐야?", "내가 널 도울 방법이 있을까?",
-        "너는 누구랑 같이 살아?", "너는 몇 살이야?", "너의 몸무게는 얼마야?"
+        "너는 누구랑 같이 살아?", "너는 몇 살이야?", "어떻게 생겼어?"
     ])
     embeddings1 = model(sentences1)
     embeddings2 = model(sentences2)

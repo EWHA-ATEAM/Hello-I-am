@@ -29,7 +29,7 @@ def get_image(request):
     form.save()
 
     # 사진 인식 모델 로드하기
-    file_name = os.path.dirname(__file__) + '/model2.h5'    # 배포할 때를 대비해... (내 로컬 절대경로로 쓰면 안 됨)
+    file_name = os.path.dirname(__file__) + '/model3.h5'    # 배포할 때를 대비해... (내 로컬 절대경로로 쓰면 안 됨)
     model = load_model(file_name)
 
     # 모델에 인풋할 수 있도록 형태 바꾸기
@@ -57,6 +57,7 @@ def get_image(request):
         res = 2
 
     return HttpResponse(res)
+
 
 
 ## 음성인식으로 받은 문장의 카테고리를 분류해서 대답하는 함수

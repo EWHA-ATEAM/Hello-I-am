@@ -24,7 +24,7 @@ def get_image(request):
 
     # 유니티로부터 이미지 받아오기
     screenimage = request.FILES['screenImage']
-    print(screenimage)
+    # print(screenimage)
     form.image = screenimage
     form.save()
 
@@ -34,17 +34,17 @@ def get_image(request):
 
     # 모델에 인풋할 수 있도록 형태 바꾸기
     img = image.load_img("./media/images/screenImage.dat", target_size=(150, 150))
-    print(os.listdir("./media/images/"))
+    # print(os.listdir("./media/images/"))
 
     img2 = image.img_to_array(img)
     img2 = np.expand_dims(img2, axis=0)
 
-    print('사진 삭제할게요')
+    # 사진 삭제하기
     form.delete()  # db에서 삭제하기 - media 폴더의 사진도 같이 삭제
 
     # 예측하기
     predict = model.predict(img2)
-    print("사진의 예측값은:", predict)
+    # print("사진의 예측값은:", predict)
     # {'heart':0, 'hi':1, 'pet':2}
 
     res = -1    # 아무 인덱스도 아닌 -1로 초기화

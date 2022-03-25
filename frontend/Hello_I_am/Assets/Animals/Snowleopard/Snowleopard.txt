@@ -1,0 +1,75 @@
+Snow Leopard 3D model.
+
+Include scene demo
+26 Animations in Root Motion
+3 Textures (4096x4096)
+1 Materials
+1 Prefab
+1 Animator Controller
+1 Skybox
+2 Scripts
+
+Low poly model
+
+6287 quad polygons on this mesh
+6368 vertices on this mesh
+
+Textures
+Snowleopard_D
+Snowleopard _Eye_D
+Snowleopard_N
+
+Animations List
+attack1
+attack2
+attack3
+die
+eat
+getup
+growl
+hit
+idle
+idlelay
+jump
+lay
+run
+runleft
+runright
+sleep
+sleeping
+sneak
+sneakleft
+sneakright
+trot
+trotleft
+trotright
+turnleft
+turnright
+walk
+
+Scene Demo
+keys for enable animations
+
+W=walk
+A=turnleft
+D=turnright
+W+Altright=sneak
+A+Altright=sneakleft
+D+Altright=sneakright
+W+Shiftright=trot
+A+Shiftright=trotleft
+D+Shiftright=trotright
+w+Ctrlright=run
+A+Ctrlright=runleft
+D+Ctrlright=runright
+Space=attack1
+G=attack2
+G=attack3
+w+F=attack
+E=eat
+L=lay/getup
+R=sleep
+H=hit
+Keypad0=die
+
+enjoy game age:)

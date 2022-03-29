@@ -5,9 +5,7 @@ using UnityEngine;
 public class Polarbear : MonoBehaviour
 {
     private Animator polarbear;
-    CharacterController characterController;
-    public float gravity = 2.0f;
-    private Vector3 moveDirection = Vector3.zero;
+    public float gravity;
     private bool Speed1 = true;
     private bool Speed2 = false;
     private bool Speed3 = false;
@@ -17,32 +15,11 @@ public class Polarbear : MonoBehaviour
     void Start()
     {
         polarbear = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        characterController.Move(moveDirection * Time.deltaTime);
-        moveDirection.y -= gravity * Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Speed1 = !Speed1;
-            Speed2 = false;
-            Speed3 = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Speed2 = !Speed2;
-            Speed1 = false;
-            Speed3 = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Speed3 = !Speed3;
-            Speed1 = false;
-            Speed2 = false;
-        }
+        /*
         if (polarbear.GetCurrentAnimatorStateInfo(0).IsName("idle2"))
         {
             polarbear.SetBool("trotting", false);
@@ -65,6 +42,7 @@ public class Polarbear : MonoBehaviour
         {
             polarbear.SetBool("lay", false);
         }
+        */
         if (Input.GetKeyDown(KeyCode.E))
         {
             polarbear.SetBool("idle2", false);
@@ -214,12 +192,12 @@ public class Polarbear : MonoBehaviour
             polarbear.SetBool("idle2", false);
             polarbear.SetBool("roar", true);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             polarbear.SetBool("doubleswipe", true);
             polarbear.SetBool("roar", false);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             polarbear.SetBool("swipeleft", true);
             polarbear.SetBool("roar", false);
@@ -241,4 +219,10 @@ public class Polarbear : MonoBehaviour
             polarbear.SetBool("roar", false);
         }
     }
+
+    public void onCilckMotion()
+    {
+        polarbear.SetTrigger("heartTrigger");
+    }
 }
+

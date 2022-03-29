@@ -313,7 +313,7 @@ public class Snowleopard : MonoBehaviour {
             snowleopard.SetBool("trot", false);
             snowleopard.SetBool("trotright", false);
             snowleopard.SetBool("trotleft", false);
-            StartCoroutine("run");
+            //StartCoroutine("run");
         }
         if (Input.GetKeyDown(KeyCode.F))
         {

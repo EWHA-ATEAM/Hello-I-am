@@ -29,14 +29,15 @@ public class AnimalAnimation : MonoBehaviour
         {
             serverCommunicate.receiveMotion = false;
             int motion = serverCommunicate.motionIndex;
+            Debug.Log(motion);
 
-            if(motion == 0) // hi
-            {
-                animal.SetTrigger("hiTrigger");
-            }
-            else if(motion == 1) // heart
+            if(motion == 0) // heart
             {
                 animal.SetTrigger("heartTrigger");
+            }
+            else if(motion == 1) // hi
+            {
+                animal.SetTrigger("hiTrigger");
             }
             else if(motion == 2) // pet
             {

@@ -14,7 +14,7 @@ public class ARTapToPlaceAnimal : MonoBehaviour
     public GameObject startUI;
     public GameObject basicUI;
 
-    private GameObject AnimalAR;
+    public GameObject AnimalAR { get; private set; }
     private ARRaycastManager _arRaycastManager;
     private Vector2 touchPosition;
 

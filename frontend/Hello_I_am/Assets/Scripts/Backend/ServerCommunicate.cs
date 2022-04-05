@@ -75,10 +75,10 @@ public class ServerCommunicate : MonoBehaviour
             loading.SetActive(false);
             string message = request.downloadHandler.text;
             Debug.Log("사진 인식 결과값:" + message);
-            /* 처리하는 함수 호출
+            
             motionIndex = int.Parse(message);
             receiveMotion = true;
-            */
+            
         }
     }
 

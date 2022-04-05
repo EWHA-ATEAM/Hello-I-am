@@ -11,6 +11,8 @@ public class CaptureScreen : MonoBehaviour
     [SerializeField]
     private GameObject checkScreenShot;
     [SerializeField]
+    private GameObject captureFlash;
+    [SerializeField]
     private GameObject basicUI;
 
     private int width;
@@ -64,12 +66,13 @@ public class CaptureScreen : MonoBehaviour
         Sprite custom_sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
         checkScreenShot.SetActive(true);
         checkScreenShot.GetComponent<Image>().sprite = custom_sprite;
+        captureFlash.SetActive(true);
 
         // 파일 저장 코드
         // File.WriteAllBytes("C:/Users/zmin9/Desktop/test.jpg", imgBytes);
 
         // 만약 http 통신으로 보낼경우
-        //GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(imgBytes);
+        GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(imgBytes);
 
         Destroy(screenShot);
         //아래 코드를 활성화 시키면 이상한 sprite가 뜸

@@ -15,14 +15,9 @@ import os
 from django.conf import settings
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 MEDIA_URL = '/media/'   # http://127.0.0.1:8000/media/파일경로 형태가 되기 위해
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# base_dir = settings.MEDIA_ROOT
-# my_file = os.path.join(base_dir, str('model2.h5'))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/

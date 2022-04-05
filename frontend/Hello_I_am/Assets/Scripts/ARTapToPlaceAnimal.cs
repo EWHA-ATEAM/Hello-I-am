@@ -14,7 +14,7 @@ public class ARTapToPlaceAnimal : MonoBehaviour
     public GameObject startUI;
     public GameObject basicUI;
 
-    private GameObject AnimalAR;
+    public GameObject AnimalAR { get; private set; }
     private ARRaycastManager _arRaycastManager;
     private Vector2 touchPosition;
 
@@ -46,11 +46,12 @@ public class ARTapToPlaceAnimal : MonoBehaviour
         if(_arRaycastManager.Raycast(touchPosition,hits,TrackableType.PlaneWithinPolygon))
         {
             var hitPose = hits[0].pose;
+            var hitRotation = hitPose.rotation.eulerAngles;
+            hitRotation.y += 180;
 
-
-            if(AnimalAR == null)
+            if (AnimalAR == null)
             {
-                AnimalAR = Instantiate(gameObjectToInstantiate[AppManager.instance.animal_index], hitPose.position, hitPose.rotation);
+                AnimalAR = Instantiate(gameObjectToInstantiate[AppManager.instance.animal_index], hitPose.position, Quaternion.Euler(hitRotation));
                 startUI.SetActive(false);
                 basicUI.SetActive(true);
 

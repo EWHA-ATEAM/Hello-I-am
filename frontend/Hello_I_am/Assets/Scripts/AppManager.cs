@@ -5,7 +5,7 @@ using UnityEngine;
 public class AppManager : MonoBehaviour
 {
     [HideInInspector]
-    public int visited; // 첫 방문시 0의 값을 가짐 for guide..
+    private int visited; // 첫 방문시 0의 값을 가짐 for guide..
     [HideInInspector]
     public int animal_index = -1; // 선택된 animal의 index
     [HideInInspector]
@@ -58,5 +58,16 @@ public class AppManager : MonoBehaviour
         visited = 0;
         Debug.Log("pref 초기화");
         Debug.Log("visited:" + visited);
+    }
+
+    public void saveVisited(int value)
+    {
+        visited = value;
+        PlayerPrefs.SetInt("Visited", visited);
+    }
+
+    public int getVisited()
+    {
+        return visited;
     }
 }

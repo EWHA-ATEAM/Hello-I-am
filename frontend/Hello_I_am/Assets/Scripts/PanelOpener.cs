@@ -17,13 +17,13 @@ public class PanelOpener : MonoBehaviour
 
         if (is_camera_Active)
         {
-            Debug.Log("Ä«¸Ş¶ó ÆÒ³Ú ¤·¤»");
+            Debug.Log("ì¹´ë©”ë¼ íŒ¬ë„¬ ã…‡ã…‹");
             Camera_Panel.SetActive(!is_camera_Active);
             Speech_Panel.SetActive(!is_speech_Active);
         }
         else if (is_speech_Active)
         {
-            Debug.Log("½ºÇÇÄ¡ ÆÒ³Ú ¤·¤»");
+            Debug.Log("ìŠ¤í”¼ì¹˜ íŒ¬ë„¬ ã…‡ã…‹");
             Speech_Panel.SetActive(!is_speech_Active);
             Back_Panel.SetActive(!is_back_Active);
         }

@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69581a9e32bbf934fa4cefff714bfc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visited: 0
   animal_index: -1
+  alertOpen: 0
   _alertPrefab: {fileID: 2865226354983209376, guid: 3448f1916eccba5439f5ffd9c8f8484a, type: 3}
 --- !u!4 &549873129
 Transform:
@@ -874,7 +874,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1861091174}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: goToMenu
+        m_MethodName: goToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

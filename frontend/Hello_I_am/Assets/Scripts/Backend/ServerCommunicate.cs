@@ -88,7 +88,7 @@ public class ServerCommunicate : MonoBehaviour
     private int addCommunicationLog(int count, string msg)
     {
         int index = 1;
-        if (count > 5)
+        if (count > 7)
             index = 0;
 
         chatScroll.GetComponentInChildren<Text>().text = chatScroll.GetComponentInChildren<Text>().text.Substring(index) + "\n" + msg;

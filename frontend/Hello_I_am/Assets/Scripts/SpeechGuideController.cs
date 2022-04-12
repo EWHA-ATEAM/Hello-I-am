@@ -21,13 +21,13 @@ public class SpeechGuideController : MonoBehaviour
         serverCommunicate = GameObject.Find("Canvas").GetComponent<ServerCommunicate>();
         if (!isRetry)
         {
-            guideText.text = "인사를 나눠보세요!";
+            guideText.text = "위에 마이크가 나타나면\n인사를 나눠보세요!";
         }
         else
         {
             List<int> indexList = new List<int>();
             int count = 0;
-            string guide = "아래의 정보와 관련된 질문을 해보세요!";
+            string guide = "위에 마이크가 나타나면\n아래의 정보와 관련된 질문을 해보세요!";
             int guideIndex = Random.Range(0, 8);
             while (count<GUIDE_NUM)
             {

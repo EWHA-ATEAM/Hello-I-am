@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add87665a926633418fc76a834b8431d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel1: {fileID: 1247490976}
-  Panel2: {fileID: 1325369514}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
   Panel3: {fileID: 0}
 --- !u!212 &197055850
 SpriteRenderer:
@@ -1463,8 +1463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add87665a926633418fc76a834b8431d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel1: {fileID: 1325369514}
-  Panel2: {fileID: 1247490976}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
   Panel3: {fileID: 0}
 --- !u!212 &1070002869
 SpriteRenderer:
@@ -2629,8 +2629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add87665a926633418fc76a834b8431d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel1: {fileID: 966637674}
-  Panel2: {fileID: 1247490976}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
   Panel3: {fileID: 0}
 --- !u!212 &1637586900
 SpriteRenderer:
@@ -3042,8 +3042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add87665a926633418fc76a834b8431d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel1: {fileID: 1247490976}
-  Panel2: {fileID: 966637674}
+  Panel1: {fileID: 0}
+  Panel2: {fileID: 0}
   Panel3: {fileID: 0}
 --- !u!1 &2141328430
 GameObject:

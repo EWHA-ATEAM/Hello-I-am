@@ -12,8 +12,6 @@ public class CaptureScreen : MonoBehaviour
     private GameObject checkScreenShot;
     [SerializeField]
     private GameObject captureFlash;
-    [SerializeField]
-    private GameObject basicUI;
 
     private int width;
     private int height;
@@ -63,12 +61,11 @@ public class CaptureScreen : MonoBehaviour
         // 만약 http 통신으로 보낼경우
         GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(img);
 
-        
+
         //아래 코드를 활성화 시키면 이상한 sprite가 뜸
         //Destroy(tex);
 
         nowCapturing = false;
-        basicUI.SetActive(true);
         gameObject.SetActive(false);
     }
 

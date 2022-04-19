@@ -7,13 +7,15 @@ public class OpacityController : MonoBehaviour
 {
     public float retentionTime;
     public float fadeOutRate;
+    public float maxAlpha;
 
     private bool startFadeOut = false;
     private Color color;
+
     private void OnEnable()
     {
         color = gameObject.GetComponent<Image>().color;
-        color.a = 1.0f;
+        color.a = maxAlpha;
         gameObject.GetComponent<Image>().color = color;
         StartCoroutine(WaitFadeOut(retentionTime));
     }

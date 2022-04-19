@@ -37,7 +37,7 @@ public class SpeechButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     private IEnumerator Recording()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         if(!speechGuide.GetComponent<SpeechGuideController>().isRetry)
             speechGuide.GetComponent<SpeechGuideController>().isRetry = true;

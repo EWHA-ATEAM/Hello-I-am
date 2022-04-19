@@ -6,7 +6,10 @@ using UnityEngine.Networking;
 public class ServerCommunicate : MonoBehaviour
 {
     [SerializeField]
-    private GameObject chatScroll;
+    private GameObject AnswerBox;
+    [SerializeField]
+    private Text AnswerText;
+
     [SerializeField]
     private GameObject loading;
     [Space(10)]
@@ -19,7 +22,7 @@ public class ServerCommunicate : MonoBehaviour
     public int motionIndex = 0;
 
 
-    private int comm_num =0;
+    //private int comm_num =0;
 
     
 
@@ -52,7 +55,8 @@ public class ServerCommunicate : MonoBehaviour
         {
             loading.SetActive(false);
             string message = request.downloadHandler.text;
-            comm_num = addCommunicationLog(comm_num, message);
+            showAnswer(message);
+            //comm_num = addCommunicationLog(comm_num, message);
         }
     }
 
@@ -82,9 +86,14 @@ public class ServerCommunicate : MonoBehaviour
         }
     }
 
+    private void showAnswer(string msg)
+    {
+        AnswerText.text = msg;
+        AnswerBox.SetActive(true);
+    }
 
 
-
+    /* 아마 사용하지 않을 함수 (chatscroll에 메세지 추가하는 함수)
     private int addCommunicationLog(int count, string msg)
     {
         int index = 1;
@@ -102,11 +111,11 @@ public class ServerCommunicate : MonoBehaviour
         yield return new WaitForSeconds(0.1f * Time.deltaTime);
         chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
-
+    */
     // For test
     public void onclicktest()
     {
-        comm_num = addCommunicationLog(comm_num, comm_num + "번째 시도");
-        chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
+        showAnswer("test!!");
     }
+    
 }

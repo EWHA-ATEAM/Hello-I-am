@@ -12,7 +12,7 @@ public class SpeechGuideController : MonoBehaviour
     public bool isRetry = false;
     const int GUIDE_NUM = 3;
     
-    private string[] guideList = { "어디에 사는지", "무엇을 먹는지", "기분이 어떤지", "힘든 점이 있는지", "우리가 도와줄 것이 있는지", "동물가족들은 어떤지", "나이가 어떻게 되는지", "겉모습이 어떤지" };
+    private string[] guideList = { "어디에 살아?", "너는 뭘 먹어?", "오늘 기분이 어때?", "힘든 일은 없어?", "내가 뭘 하면 널 도울 수 있어?", "네 가족들은 어때?", "몇 살이야?", "넌 어떻게 생겼어?" };
 
     private ServerCommunicate serverCommunicate;
 
@@ -21,13 +21,13 @@ public class SpeechGuideController : MonoBehaviour
         serverCommunicate = GameObject.Find("Canvas").GetComponent<ServerCommunicate>();
         if (!isRetry)
         {
-            guideText.text = "위에 마이크가 나타나면\n인사를 나눠보세요!";
+            guideText.text = "동물과 인사를 나눠보세요!\n";
         }
         else
         {
             List<int> indexList = new List<int>();
             int count = 0;
-            string guide = "위에 마이크가 나타나면\n아래의 정보와 관련된 질문을 해보세요!";
+            string guide = "아래의 정보와 관련된 질문을 해보세요!\n\n";
             int guideIndex = Random.Range(0, 8);
             while (count<GUIDE_NUM)
             {

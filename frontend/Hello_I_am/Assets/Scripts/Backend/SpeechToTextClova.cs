@@ -28,8 +28,6 @@ public class SpeechToTextClova : MonoBehaviour
 
     [SerializeField]
     private GameObject loading;
-    [SerializeField]
-    private Text loadingText;
 
     private string url = "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor";
 
@@ -56,7 +54,6 @@ public class SpeechToTextClova : MonoBehaviour
     private IEnumerator PostVoice(string url, byte[] data)
     {
         // 값을 받아오는 시간 동안 loading 화면 실행
-        loadingText.text = "질문 이해 중...";
         loading.SetActive(true);
 
         WWWForm form = new WWWForm();
@@ -84,7 +81,6 @@ public class SpeechToTextClova : MonoBehaviour
 
             // 입력된 음성에 대한 답변 판단을 위해 서버로 전송
             GameObject.Find("Canvas").GetComponent<ServerCommunicate>().sendToServer(voiceRecognize.text);
-            loadingText.text = "\"" + voiceRecognize.text + "\"\n에 대한 답변 고민 중...";
         }
     }
 

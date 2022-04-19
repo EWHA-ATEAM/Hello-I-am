@@ -76,13 +76,11 @@ public class ServerCommunicate : MonoBehaviour
         }
         else
         {
-            loading.SetActive(false);
             string message = request.downloadHandler.text;
             Debug.Log("사진 인식 결과값:" + message);
             
             motionIndex = int.Parse(message);
             receiveMotion = true;
-            
         }
     }
 
@@ -112,6 +110,9 @@ public class ServerCommunicate : MonoBehaviour
         chatScroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 0.0f;
     }
     */
+
+
+
     // For test
     public void onclicktest()
     {

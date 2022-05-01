@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: f5e0dafcfd64ff44780dd1dcd5b7c210
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: snowleopard_Head_bone
+    100004: snowleopard_Head_ctrl
+    100006: snowleopard_Jaw_bone
+    100008: snowleopard_Jaw_ctrl
+    100010: snowleopard_Jaw_mesh
+    100012: snowleopard_l_ball_IKGoal
+    100014: snowleopard_l_ball_IKGoal 1
+    100016: snowleopard_l_Claw_bone
+    100018: snowleopard_l_Claw_ctrl
+    100020: snowleopard_l_ClawLift_hlp
+    100022: snowleopard_l_ClawLift_hlp 1
+    100024: snowleopard_l_ClawTap_hlp
+    100026: snowleopard_l_ClawTap_hlp 1
+    100028: snowleopard_l_Ear1_bone
+    100030: snowleopard_l_Ear1_ctrl
+    100032: snowleopard_l_Ear2_bone
+    100034: snowleopard_l_Ear2_ctrl
+    100036: snowleopard_l_eye_bone
+    100038: snowleopard_l_eye_ctrl
+    100040: snowleopard_l_Eye_mesh
+    100042: snowleopard_l_eyelidlower_bone
+    100044: snowleopard_l_eyelidlower_ctrl
+    100046: snowleopard_l_eyelidupper_bone
+    100048: snowleopard_l_eyelidupper_ctrl
+    100050: snowleopard_l_Femur_bone
+    100052: snowleopard_l_Foot_ctrl
+    100054: snowleopard_l_Heel_hlp
+    100056: snowleopard_l_heel_IKGoal
+    100058: snowleopard_l_heel_IKGoal 1
+    100060: snowleopard_l_HeelPeel_hlp
+    100062: snowleopard_l_Humerus_bone
+    100064: snowleopard_l_Metacarpus_bone
+    100066: snowleopard_l_Metatarsus_bone
+    100068: snowleopard_l_Radius_bone
+    100070: snowleopard_l_Tibia_bone
+    100072: snowleopard_l_Toe_bone
+    100074: snowleopard_l_toe_IKGoal
+    100076: snowleopard_l_toe_IKGoal 1
+    100078: snowleopard_l_ToeLift_hlp
+    100080: snowleopard_l_ToeTap_hlp
+    100082: snowleopard_l_Wrist_hlp
+    100084: snowleopard_l_Wrist_hlp 1
+    100086: snowleopard_l_WristPeel_hlp
+    100088: snowleopard_l_WristPeel_hlp 1
+    100090: snowleopard_Main_ctrl
+    100092: snowleopard_Main_ctrl 1
+    100094: snowleopard_Mandible_bone
+    100096: snowleopard_Mandible_ctrl
+    100098: snowleopard_Maxillary
+    100100: snowleopard_mesh
+    100102: snowleopard_Neck1_bone
+    100104: snowleopard_Neck1_ctrl
+    100106: snowleopard_Neck2_bone
+    100108: snowleopard_Pelvis_bone
+    100110: snowleopard_Pelvis_ctrl
+    100112: snowleopard_r_ball_IKGoal
+    100114: snowleopard_r_ball_IKGoal 1
+    100116: snowleopard_r_Claw_bone
+    100118: snowleopard_r_Claw_ctrl
+    100120: snowleopard_r_Ear1_bone
+    100122: snowleopard_r_Ear1_ctrl
+    100124: snowleopard_r_Ear2_bone
+    100126: snowleopard_r_Ear2_ctrl
+    100128: snowleopard_r_eye_bone
+    100130: snowleopard_r_eye_ctrl
+    100132: snowleopard_r_Eye_mesh
+    100134: snowleopard_r_eyelidlower_bone
+    100136: snowleopard_r_eyelidlower_ctrl
+    100138: snowleopard_r_eyelidupper_bone
+    100140: snowleopard_r_eyelidupper_ctrl
+    100142: snowleopard_r_Femur_bone
+    100144: snowleopard_r_Foot_ctrl
+    100146: snowleopard_r_Heel_hlp
+    100148: snowleopard_r_heel_IKGoal
+    100150: snowleopard_r_heel_IKGoal 1
+    100152: snowleopard_r_HeelPeel_hlp
+    100154: snowleopard_r_Humerus_bone
+    100156: snowleopard_r_Metacarpus_bone
+    100158: snowleopard_r_Metatarsus_bone
+    100160: snowleopard_r_Radius_bone
+    100162: snowleopard_r_Tibia_bone
+    100164: snowleopard_r_Toe_bone
+    100166: snowleopard_r_toe_IKGoal
+    100168: snowleopard_r_toe_IKGoal 1
+    100170: snowleopard_r_ToeLift_hlp
+    100172: snowleopard_r_ToeTap_hlp
+    100174: snowleopard_Scral_bone
+    100176: snowleopard_Scral_ctrl
+    100178: snowleopard_Snout_bone
+    100180: snowleopard_Snout_ctrl
+    100182: snowleopard_Spine1_bone
+    100184: snowleopard_Spine1_ctrl
+    100186: snowleopard_Spine2_bone
+    100188: snowleopard_Spine3_bone
+    100190: snowleopard_Spine3_ctrl
+    100192: snowleopard_Tail10_bone
+    100194: snowleopard_Tail10_ctrl
+    100196: snowleopard_Tail11_bone
+    100198: snowleopard_Tail11_ctrl
+    100200: snowleopard_Tail12_bone
+    100202: snowleopard_Tail12_ctrl
+    100204: snowleopard_Tail1_bone
+    100206: snowleopard_Tail1_ctrl
+    100208: snowleopard_Tail2_bone
+    100210: snowleopard_Tail2_ctrl
+    100212: snowleopard_Tail3_bone
+    100214: snowleopard_Tail3_ctrl
+    100216: snowleopard_Tail4_bone
+    100218: snowleopard_Tail4_ctrl
+    100220: snowleopard_Tail5_bone
+    100222: snowleopard_Tail5_ctrl
+    100224: snowleopard_Tail6_bone
+    100226: snowleopard_Tail6_ctrl
+    100228: snowleopard_Tail7_bone
+    100230: snowleopard_Tail7_ctrl
+    100232: snowleopard_Tail8_bone
+    100234: snowleopard_Tail8_ctrl
+    100236: snowleopard_Tail9_bone
+    100238: snowleopard_Tail9_ctrl
+    100240: snowleopard_Tongue_mesh
+    100242: snowleopard_Jaw-nub_bone
+    100244: snowleopard_l_Claw-nub_bone
+    100246: snowleopard_l_Ear2-nub_bone
+    100248: snowleopard_l_eye-nub_bone
+    100250: snowleopard_l_eyelidlower-nub_bone
+    100252: snowleopard_l_eyelidupper-nub_bone
+    100254: snowleopard_l_Toe-nub_bone
+    100256: snowleopard_r_Claw-nub_bone
+    100258: snowleopard_r_Ear2-nub_bone
+    100260: snowleopard_r_eye-nub_bone
+    100262: snowleopard_r_eyelidlower-nub_bone
+    100264: snowleopard_r_eyelidupper-nub_bone
+    100266: snowleopard_r_Toe-nub_bone
+    100268: snowleopard_Snout-nub_bone
+    100270: snowleopard_Tail12-nub_bone
+    400000: //RootNode
+    400002: snowleopard_Head_bone
+    400004: snowleopard_Head_ctrl
+    400006: snowleopard_Jaw_bone
+    400008: snowleopard_Jaw_ctrl
+    400010: snowleopard_Jaw_mesh
+    400012: snowleopard_l_ball_IKGoal
+    400014: snowleopard_l_ball_IKGoal 1
+    400016: snowleopard_l_Claw_bone
+    400018: snowleopard_l_Claw_ctrl
+    400020: snowleopard_l_ClawLift_hlp
+    400022: snowleopard_l_ClawLift_hlp 1
+    400024: snowleopard_l_ClawTap_hlp
+    400026: snowleopard_l_ClawTap_hlp 1
+    400028: snowleopard_l_Ear1_bone
+    400030: snowleopard_l_Ear1_ctrl
+    400032: snowleopard_l_Ear2_bone
+    400034: snowleopard_l_Ear2_ctrl
+    400036: snowleopard_l_eye_bone
+    400038: snowleopard_l_eye_ctrl
+    400040: snowleopard_l_Eye_mesh
+    400042: snowleopard_l_eyelidlower_bone
+    400044: snowleopard_l_eyelidlower_ctrl
+    400046: snowleopard_l_eyelidupper_bone
+    400048: snowleopard_l_eyelidupper_ctrl
+    400050: snowleopard_l_Femur_bone
+    400052: snowleopard_l_Foot_ctrl
+    400054: snowleopard_l_Heel_hlp
+    400056: snowleopard_l_heel_IKGoal
+    400058: snowleopard_l_heel_IKGoal 1
+    400060: snowleopard_l_HeelPeel_hlp
+    400062: snowleopard_l_Humerus_bone
+    400064: snowleopard_l_Metacarpus_bone
+    400066: snowleopard_l_Metatarsus_bone
+    400068: snowleopard_l_Radius_bone
+    400070: snowleopard_l_Tibia_bone
+    400072: snowleopard_l_Toe_bone
+    400074: snowleopard_l_toe_IKGoal
+    400076: snowleopard_l_toe_IKGoal 1
+    400078: snowleopard_l_ToeLift_hlp
+    400080: snowleopard_l_ToeTap_hlp
+    400082: snowleopard_l_Wrist_hlp
+    400084: snowleopard_l_Wrist_hlp 1
+    400086: snowleopard_l_WristPeel_hlp
+    400088: snowleopard_l_WristPeel_hlp 1
+    400090: snowleopard_Main_ctrl
+    400092: snowleopard_Main_ctrl 1
+    400094: snowleopard_Mandible_bone
+    400096: snowleopard_Mandible_ctrl
+    400098: snowleopard_Maxillary
+    400100: snowleopard_mesh
+    400102: snowleopard_Neck1_bone
+    400104: snowleopard_Neck1_ctrl
+    400106: snowleopard_Neck2_bone
+    400108: snowleopard_Pelvis_bone
+    400110: snowleopard_Pelvis_ctrl
+    400112: snowleopard_r_ball_IKGoal
+    400114: snowleopard_r_ball_IKGoal 1
+    400116: snowleopard_r_Claw_bone
+    400118: snowleopard_r_Claw_ctrl
+    400120: snowleopard_r_Ear1_bone
+    400122: snowleopard_r_Ear1_ctrl
+    400124: snowleopard_r_Ear2_bone
+    400126: snowleopard_r_Ear2_ctrl
+    400128: snowleopard_r_eye_bone
+    400130: snowleopard_r_eye_ctrl
+    400132: snowleopard_r_Eye_mesh
+    400134: snowleopard_r_eyelidlower_bone
+    400136: snowleopard_r_eyelidlower_ctrl
+    400138: snowleopard_r_eyelidupper_bone
+    400140: snowleopard_r_eyelidupper_ctrl
+    400142: snowleopard_r_Femur_bone
+    400144: snowleopard_r_Foot_ctrl
+    400146: snowleopard_r_Heel_hlp
+    400148: snowleopard_r_heel_IKGoal
+    400150: snowleopard_r_heel_IKGoal 1
+    400152: snowleopard_r_HeelPeel_hlp
+    400154: snowleopard_r_Humerus_bone
+    400156: snowleopard_r_Metacarpus_bone
+    400158: snowleopard_r_Metatarsus_bone
+    400160: snowleopard_r_Radius_bone
+    400162: snowleopard_r_Tibia_bone
+    400164: snowleopard_r_Toe_bone
+    400166: snowleopard_r_toe_IKGoal
+    400168: snowleopard_r_toe_IKGoal 1
+    400170: snowleopard_r_ToeLift_hlp
+    400172: snowleopard_r_ToeTap_hlp
+    400174: snowleopard_Scral_bone
+    400176: snowleopard_Scral_ctrl
+    400178: snowleopard_Snout_bone
+    400180: snowleopard_Snout_ctrl
+    400182: snowleopard_Spine1_bone
+    400184: snowleopard_Spine1_ctrl
+    400186: snowleopard_Spine2_bone
+    400188: snowleopard_Spine3_bone
+    400190: snowleopard_Spine3_ctrl
+    400192: snowleopard_Tail10_bone
+    400194: snowleopard_Tail10_ctrl
+    400196: snowleopard_Tail11_bone
+    400198: snowleopard_Tail11_ctrl
+    400200: snowleopard_Tail12_bone
+    400202: snowleopard_Tail12_ctrl
+    400204: snowleopard_Tail1_bone
+    400206: snowleopard_Tail1_ctrl
+    400208: snowleopard_Tail2_bone
+    400210: snowleopard_Tail2_ctrl
+    400212: snowleopard_Tail3_bone
+    400214: snowleopard_Tail3_ctrl
+    400216: snowleopard_Tail4_bone
+    400218: snowleopard_Tail4_ctrl
+    400220: snowleopard_Tail5_bone
+    400222: snowleopard_Tail5_ctrl
+    400224: snowleopard_Tail6_bone
+    400226: snowleopard_Tail6_ctrl
+    400228: snowleopard_Tail7_bone
+    400230: snowleopard_Tail7_ctrl
+    400232: snowleopard_Tail8_bone
+    400234: snowleopard_Tail8_ctrl
+    400236: snowleopard_Tail9_bone
+    400238: snowleopard_Tail9_ctrl
+    400240: snowleopard_Tongue_mesh
+    400242: snowleopard_Jaw-nub_bone
+    400244: snowleopard_l_Claw-nub_bone
+    400246: snowleopard_l_Ear2-nub_bone
+    400248: snowleopard_l_eye-nub_bone
+    400250: snowleopard_l_eyelidlower-nub_bone
+    400252: snowleopard_l_eyelidupper-nub_bone
+    400254: snowleopard_l_Toe-nub_bone
+    400256: snowleopard_r_Claw-nub_bone
+    400258: snowleopard_r_Ear2-nub_bone
+    400260: snowleopard_r_eye-nub_bone
+    400262: snowleopard_r_eyelidlower-nub_bone
+    400264: snowleopard_r_eyelidupper-nub_bone
+    400266: snowleopard_r_Toe-nub_bone
+    400268: snowleopard_Snout-nub_bone
+    400270: snowleopard_Tail12-nub_bone
+    2100000: Snow leopard - Material
+    2100002: Eye - Material
+    2100004: No Name
+    2300000: snowleopard_l_Claw_ctrl
+    2300002: snowleopard_l_Foot_ctrl
+    2300004: snowleopard_r_Claw_ctrl
+    2300006: snowleopard_r_Foot_ctrl
+    3300000: snowleopard_l_Claw_ctrl
+    3300002: snowleopard_l_Foot_ctrl
+    3300004: snowleopard_r_Claw_ctrl
+    3300006: snowleopard_r_Foot_ctrl
+    4300000: snowleopard_Maxillary
+    4300002: snowleopard_r_Eye_mesh
+    4300004: snowleopard_l_Eye_mesh
+    4300006: snowleopard_mesh
+    4300008: snowleopard_Jaw_mesh
+    4300010: snowleopard_Tongue_mesh
+    4300012: snowleopard_r_Claw_ctrl
+    4300014: snowleopard_l_Claw_ctrl
+    4300016: snowleopard_l_Foot_ctrl
+    4300018: snowleopard_r_Foot_ctrl
+    7400000: turnright
+    9500000: //RootNode
+    13700000: snowleopard_Jaw_mesh
+    13700002: snowleopard_l_Eye_mesh
+    13700004: snowleopard_Maxillary
+    13700006: snowleopard_mesh
+    13700008: snowleopard_r_Eye_mesh
+    13700010: snowleopard_Tongue_mesh
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye - Material
+    second: {fileID: 2100000, guid: 7229938e27e2dec4a99d100b081b4fb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Snow leopard - Material
+    second: {fileID: 2100000, guid: ebeaa43c78fc29545b5cc9cd9a1ab57c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: turnright
+      takeName: Take 001
+      firstFrame: 307
+      lastFrame: 331
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: snowleopard_Main_ctrl
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

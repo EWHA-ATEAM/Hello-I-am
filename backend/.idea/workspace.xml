@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c44557ce-6f72-4d84-8d71-10abaab7ba4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/Hello_I_am/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/Hello_I_am/Assets/Scenes/Tutorial.unity" afterDir="false" />
-    </list>
+    <list default="true" id="c44557ce-6f72-4d84-8d71-10abaab7ba4e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

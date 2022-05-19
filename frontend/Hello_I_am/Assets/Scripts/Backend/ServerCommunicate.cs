@@ -49,6 +49,7 @@ public class ServerCommunicate : MonoBehaviour
 
         if (request == null)
         {
+            loading.SetActive(false);
             Debug.LogError(request.error);
         }
         else
@@ -116,7 +117,9 @@ public class ServerCommunicate : MonoBehaviour
     // For test
     public void onclicktest()
     {
-        showAnswer("test!!");
+        //showAnswer("test!!");
+        Debug.Log("밥먹었어 보냄");
+        sendToServer("밥 먹었어?");
     }
     
 }
